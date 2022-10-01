@@ -48,6 +48,7 @@ public class ConnectDatabase {
 			}
 			return results;
 		} catch (SQLException e) {
+			
 			return null;
 		} finally {
 			try {

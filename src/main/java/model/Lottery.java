@@ -97,9 +97,11 @@ public class Lottery {
 	}
 	@Override
 	public String toString() {
-		return "Lottery [company=" + company + ", province=" + province + ", relaseDate=" + relaseDate + ", prize0="
-				+ prize0 + ", prize1=" + prize1 + ", prize2=" + prize2 + ", prize3=" + prize3 + ", prize4=" + prize4
-				+ ", prize5=" + prize5 + ", prize6=" + prize6 + ", prize7=" + prize7 + ", prize8=" + prize8 + "]";
+		return "Lottery [code=" + code + ", company=" + company + ", province=" + province + ", relaseDate="
+				+ relaseDate + ", prize0=" + prize0 + ", prize1=" + prize1 + ", prize2=" + prize2 + ", prize3=" + prize3
+				+ ", prize4=" + prize4 + ", prize5=" + prize5 + ", prize6=" + prize6 + ", prize7=" + prize7
+				+ ", prize8=" + prize8 + "]";
 	}
+	
 	
 }

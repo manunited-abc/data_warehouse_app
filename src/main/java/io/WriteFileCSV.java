@@ -13,8 +13,10 @@ import java.util.List;
 import model.Lottery;
 
 public class WriteFileCSV {
-	public static void write(String dirSource, ArrayList<Lottery> lotteries) throws IOException {
+	public static void write(String dirSource, List<Lottery> lotteries) throws IOException {
 		try (BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(dirSource)))) {
+			bw.write("Code");
+			bw.write(",");
 			bw.write("Company");
 			bw.write(",");
 			bw.write("Province");
@@ -40,6 +42,8 @@ public class WriteFileCSV {
 			bw.write("Prize 8");
 			bw.newLine();
 			for (Lottery lottery : lotteries) {
+				bw.write(String.valueOf(lottery.getCode()));
+				bw.write(",");
 				bw.write(lottery.getCompany());
 				bw.write(",");
 				bw.write(lottery.getProvince());
