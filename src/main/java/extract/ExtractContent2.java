@@ -102,9 +102,35 @@ public class ExtractContent2 {
 		}
 		return result;
 	}
-	public Lottery extracLotterySouth(String url) {
-		return null;
+
+	public Lottery extracLotterySouth(String url) throws IOException {
+		Lottery lottery = new Lottery();
+		document = Jsoup.connect(url).get();
+
+		Element load = document.getElementsByClass("box").select("div.one-city").first();
+		String date[] = load.attr("data-date").split("-");
+		int year = Integer.valueOf(date[0]);
+		int month = Integer.valueOf(date[1]);
+		int day = Integer.valueOf(date[2]);
+		
+		String issueDate = LocalDate.of(year, month, day).toString();
+		lottery.setRelaseDate(issueDate);
+		
+		Elements trElements = document.getElementsByClass("extendable").first().getElementsByTag("tr");
+	
+		lottery.setPrize0(getSerial(trElements.get(1)));
+		lottery.setPrize1(getSerial(trElements.get(2)));
+		lottery.setPrize2(getSerial(trElements.get(3)));
+		lottery.setPrize3(getSerial(trElements.get(4)));
+		lottery.setPrize4(getSerial(trElements.get(5)));
+		lottery.setPrize5(getSerial(trElements.get(6)));
+		lottery.setPrize6(getSerial(trElements.get(7)));
+		lottery.setPrize7(getSerial(trElements.get(8)));
+		lottery.setPrize8(null);
+
+		return lottery;
 	}
+
 	public Lottery extractLotteryNorthAndCenter(String url) throws IOException{
 		document = Jsoup.connect(url).get();
 		Element header = document.getElementsByClass("title-bor").first();
